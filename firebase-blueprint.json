@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Citizen user profile in Halashi Gram Panchayat",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 100 },
+        "phone": { "type": "string", "maxLength": 15 },
+        "ward": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "CitizenGrievance": {
+      "title": "CitizenGrievance",
+      "description": "Civic grievances registered by citizens",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "ticketNo": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryEn": { "type": "string" },
+        "categoryKn": { "type": "string" },
+        "title": { "type": "string", "maxLength": 150 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "locationWard": { "type": "string" },
+        "reporterName": { "type": "string" },
+        "reporterPhone": { "type": "string" },
+        "submittedDate": { "type": "string" },
+        "status": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["ticketNo", "title", "description", "locationWard"]
+    },
+    "CitizenFeedback": {
+      "title": "CitizenFeedback",
+      "description": "Citizen feedback and rating for services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 100 },
+        "phone": { "type": "string", "maxLength": 15 },
+        "rating": { "type": "number" },
+        "serviceType": { "type": "string" },
+        "comment": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["fullName", "comment", "rating"]
+    },
+    "PdoMessage": {
+      "title": "PdoMessage",
+      "description": "Direct message and requests sent to PDO Office",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "citizenName": { "type": "string", "maxLength": 100 },
+        "citizenPhone": { "type": "string", "maxLength": 15 },
+        "noteText": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["citizenName", "citizenPhone", "noteText"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profiles collection"
+    },
+    "/grievances/{grievanceId}": {
+      "schema": { "$ref": "#/entities/CitizenGrievance" },
+      "description": "Grievance complaints collection"
+    },
+    "/feedbacks/{feedbackId}": {
+      "schema": { "$ref": "#/entities/CitizenFeedback" },
+      "description": "Citizen feedbacks and ratings collection"
+    },
+    "/pdo_messages/{messageId}": {
+      "schema": { "$ref": "#/entities/PdoMessage" },
+      "description": "Direct messages to PDO Office"
+    }
+  }
+}

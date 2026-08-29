@@ -1,0 +1,6 @@
+{
+  "name": "Halashi Gram Panchayat",
+  "description": "Official digital Gram Panchayat portal for Halashi Village, Khanapur Taluk, Belagavi District, Karnataka. Features e-Governance services, Bapuji Seva Kendra, e-Swathu, MGNREGS, Gram Sabha, online tax payment, citizen services, and heritage information.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
